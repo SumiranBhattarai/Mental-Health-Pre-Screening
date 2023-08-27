@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Survey</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+        {% if prediction_result %}
+        
+            <h1>Prediction:</h1> {{ prediction_result | safe }}
+        
+    {% else %}
+    
+            No prediction available yet.
+            {% endif %}
+        </div>
+    </div>
+    <h1 class="container">Mental Health Survey</h1>
+    <form method="post" class="container">
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>What is your gender?</legend>
+            <label><input type="radio" name="gender" value="female">Female</label>
+            <label><input type="radio" name="gender" value="male">Male</label>
+            <label><input type="radio" name="gender" value="trans">Trans</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <label for="age">What is your age?</label>
+            <input type="text" id="age" name="age" placeholder="Enter your age" value="age">
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>What is your country of residence?</legend>
+            <select name="country">
+                <option value="United States">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Bulgaria">Bulgaria</option>
+                <option value="France">France</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Poland">Poland</option>
+                <option value="Australia">Australia</option>
+                <option value="Germany">Germany</option>
+                <option value="Russia">Russia</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Slovenia">Slovenia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Austria">Austria</option>
+                <option value="Ireland">Ireland</option>
+                <option value="India">India</option>
+                <option value="South Africa">South Africa</option>
+                <option value="Italy">Italy</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Latvia">Latvia</option>
+                <option value="Romania">Romania</option>
+                <option value="Belgium">Belgium</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Zimbabwe">Zimbabwe</option>
+                <option value="Spain">Spain</option>
+                <option value="Finland">Finland</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Israel">Israel</option>
+                <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Japan">Japan</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Croatia">Croatia</option>
+                <option value="Norway">Norway</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Greece">Greece</option>
+                <option value="Moldova">Moldova</option>
+                <option value="Georgia">Georgia</option>
+                <option value="China">China</option>
+                <option value="Czech Republic">Czech Republic</option>
+                <option value="Philippines">Philippines</option>
+            </select>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Are you self-employed?</legend>
+            <label><input type="radio" name="self-employed" value="Yes">Yes</label>
+            <label><input type="radio" name="self-employed" value="No">No</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Do you have a family history of mental illness?</legend>
+            <label><input type="radio" name="family-history" value="Yes">Yes</label>
+            <label><input type="radio" name="family-history" value="No">No</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Are you currently undergoing treatment for a mental health condition?</legend>
+            <label><input type="radio" name="undergoing-treatment" value="Yes">Yes</label>
+            <label><input type="radio" name="undergoing-treatment" value="No">No</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>How often does your mental health issue interfere with your work?</legend>
+            <label><input type="radio" name="interference-with-work" value="Often">Often</label>
+            <label><input type="radio" name="interference-with-work" value="Rarely">Rarely</label>
+            <label><input type="radio" name="interference-with-work" value="Never">Never</label>
+            <label><input type="radio" name="interference-with-work" value="Sometimes">Sometimes</label>
+            <label><input type="radio" name="interference-with-work" value="Don't know">Don't know</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+
+        <fieldset>
+            <legend>How many employees does your company have?</legend>
+            <label><input type="radio" name="company-size" value="1-5">1-5</label>
+            <label><input type="radio" name="company-size" value="6-25">6-25</label>
+            <label><input type="radio" name="company-size" value="26-100">26-100</label>
+            <label><input type="radio" name="company-size" value="100-500">100-500</label>
+            <label><input type="radio" name="company-size" value="500-1000">500-1000</label>
+            <label><input type="radio" name="company-size" value="More than 1000">More than 1000</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Does your company allow remote work options?</legend>
+            <label><input type="radio" name="remote-work-options" value="Yes">Yes</label>
+            <label><input type="radio" name="remote-work-options" value="No">No</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Do you work for a tech company?</legend>
+            <label><input type="radio" name="tech-company" value="Yes">Yes</label>
+            <label><input type="radio" name="tech-company" value="No">No</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Does your employer provide mental health benefits?</legend>
+            <label><input type="radio" name="mental-health-benefits" value="Yes">Yes</label>
+            <label><input type="radio" name="mental-health-benefits" value="No">No</label>
+            <label><input type="radio" name="mental-health-benefits" value="Don't know">Don't know</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Does your employer provide care options?</legend>
+            <label><input type="radio" name="care-options" value="Yes">Yes</label>
+            <label><input type="radio" name="care-options" value="No">No</label>
+            <label><input type="radio" name="care-options" value="Not sure">Not sure</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Does your employer offer a wellness program?</legend>
+            <label><input type="radio" name="wellness-program" value="Yes">Yes</label>
+            <label><input type="radio" name="wellness-program" value="No">No</label>
+            <label><input type="radio" name="wellness-program" value="Don't know">Don't know</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Would you feel comfortable seeking help for a mental health issue through your employer?</legend>
+            <label><input type="radio" name="help-through-employer" value="Yes">Yes</label>
+            <label><input type="radio" name="help-through-employer" value="No">No</label>
+            <label><input type="radio" name="help-through-employer" value="Don't know">Don't know</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Would you feel comfortable talking to a coworker about a mental health issue?</legend>
+            <label><input type="radio" name="talk-to-coworker" value="Yes">Yes</label>
+            <label><input type="radio" name="talk-to-coworker" value="No">No</label>
+            <label><input type="radio" name="talk-to-coworker" value="Don't know">Don't know</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>How easy is it for you to take medical leave for a mental health condition?</legend>
+            <label><input type="radio" name="medical-leave-ease" value="Very easy">Very easy</label>
+            <label><input type="radio" name="medical-leave-ease" value="Somewhat easy">Somewhat easy</label>
+            <label><input type="radio" name="medical-leave-ease" value="Somewhat difficult">Somewhat difficult</label>
+            <label><input type="radio" name="medical-leave-ease" value="Very difficult">Very difficult</label>
+            <label><input type="radio" name="medical-leave-ease" value="Don't know">Don't know</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Do you think discussing a mental health issue with your employer would have negative consequences?</legend>
+            <label><input type="radio" name="discuss-mental-health-consequences" value="Yes">Yes</label>
+            <label><input type="radio" name="discuss-mental-health-consequences" value="No">No</label>
+            <label><input type="radio" name="discuss-mental-health-consequences" value="Maybe">Maybe</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Do you think discussing a physical health issue with your employer would have negative consequences?</legend>
+            <label><input type="radio" name="discuss-physical-health-consequences" value="Yes">Yes</label>
+            <label><input type="radio" name="discuss-physical-health-consequences" value="No">No</label>
+            <label><input type="radio" name="discuss-physical-health-consequences" value="Maybe">Maybe</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Would your coworkers be supportive if you discussed a mental health issue with them?</legend>
+            <label><input type="radio" name="coworker-support-mental-health" value="Yes">Yes</label>
+            <label><input type="radio" name="coworker-support-mental-health" value="No">No</label>
+            <label><input type="radio" name="coworker-support-mental-health" value="Some of them">Some of them</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Would your supervisor be supportive if you discussed a mental health issue with them?</legend>
+            <label><input type="radio" name="supervisor-support-mental-health" value="Yes">Yes</label>
+            <label><input type="radio" name="supervisor-support-mental-health" value="No">No</label>
+            <label><input type="radio" name="supervisor-support-mental-health" value="Some of them">Some of them</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Would discussing a mental health condition during a job interview seem inappropriate?</legend>
+            <label><input type="radio" name="interview-mental-health" value="Yes">Yes</label>
+            <label><input type="radio" name="interview-mental-health" value="No">No</label>
+            <label><input type="radio" name="interview-mental-health" value="Maybe">Maybe</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Would discussing a physical health condition during a job interview seem inappropriate?</legend>
+            <label><input type="radio" name="interview-physical-health" value="Yes">Yes</label>
+            <label><input type="radio" name="interview-physical-health" value="No">No</label>
+            <label><input type="radio" name="interview-physical-health" value="Maybe">Maybe</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Do you feel that your employer takes mental health as seriously as physical health?</legend>
+            <label><input type="radio" name="employer-mental-health" value="Yes">Yes</label>
+            <label><input type="radio" name="employer-mental-health" value="No">No</label>
+            <label><input type="radio" name="employer-mental-health" value="Don't know">Don't know</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>Have you heard of or observed negative consequences for coworkers with mental health conditions in your workplace?</legend>
+            <label><input type="radio" name="observed-consequences" value="Yes">Yes</label>
+            <label><input type="radio" name="observed-consequences" value="No">No</label>
+        </fieldset>
+        </div>
+        <div class="fieldset-container">
+        <fieldset>
+            <legend>What is your age range?</legend>
+            <label><input type="radio" name="age-range" value="0-20">0-20</label>
+            <label><input type="radio" name="age-range" value="21-30">21-30</label>
+            <label><input type="radio" name="age-range" value="31-65">31-65</label>
+            <label><input type="radio" name="age-range" value="66-100">66-100</label>
+        </fieldset>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
