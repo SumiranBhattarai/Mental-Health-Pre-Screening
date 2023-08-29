@@ -72,9 +72,9 @@ def survey():
         print(prediction)
 
         Yes = "You need to check with a doctor for proper diagnosis and treatment"
-        No = "You are <h6>fine</h6>, but you can still check with a doctor for proper diagnosis and treatment"
+        No = "You are fine, but you can still check with a doctor for proper diagnosis and treatment"
         # Do something with the prediction (e.g., display it in the template)
-        prediction_result = "<h3>You need to check with a doctor for proper diagnosis and treatment</h3>" if prediction == 1 else "<h3>You are fine, but you can still check with a doctor for proper diagnosis and treatment</h3>"
+        prediction_result = "<h2 style='color:red'>UNWELL</h2><br/><h3>You need to check with a doctor for proper diagnosis and treatment</h3>" if prediction == 1 else "<h2 style='color:green'>HEALTHY</h2><br/><h3>You are fine, but you can still check with a doctor for proper diagnosis and treatment</h3>"
 
     return render_template('survey.html', prediction_result=prediction_result)
 

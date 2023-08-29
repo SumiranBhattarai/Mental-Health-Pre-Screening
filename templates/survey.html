@@ -9,14 +9,16 @@
 <body>
     <div class="container">
         <div class="card">
+            <div class="card-text">
         {% if prediction_result %}
         
-            <h1>Prediction:</h1> {{ prediction_result | safe }}
+            <h1>Mental Health Assessment</h1> {{ prediction_result | safe }}
         
     {% else %}
     
             No prediction available yet.
             {% endif %}
+        </div>
         </div>
     </div>
     <h1 class="container">Mental Health Survey</h1>
@@ -26,7 +28,7 @@
             <legend>What is your gender?</legend>
             <label><input type="radio" name="gender" value="female">Female</label>
             <label><input type="radio" name="gender" value="male">Male</label>
-            <label><input type="radio" name="gender" value="trans">Trans</label>
+            <label><input type="radio" name="gender" value="trans">Other</label>
         </fieldset>
         </div>
         <div class="fieldset-container">
@@ -39,53 +41,53 @@
         <fieldset>
             <legend>What is your country of residence?</legend>
             <select name="country">
-                <option value="United States">United States</option>
-                <option value="Canada">Canada</option>
-                <option value="United Kingdom">United Kingdom</option>
-                <option value="Bulgaria">Bulgaria</option>
-                <option value="France">France</option>
-                <option value="Portugal">Portugal</option>
-                <option value="Netherlands">Netherlands</option>
-                <option value="Switzerland">Switzerland</option>
-                <option value="Poland">Poland</option>
                 <option value="Australia">Australia</option>
-                <option value="Germany">Germany</option>
-                <option value="Russia">Russia</option>
-                <option value="Mexico">Mexico</option>
-                <option value="Brazil">Brazil</option>
-                <option value="Slovenia">Slovenia</option>
-                <option value="Costa Rica">Costa Rica</option>
-                <option value="Austria">Austria</option>
-                <option value="Ireland">Ireland</option>
-                <option value="India">India</option>
-                <option value="South Africa">South Africa</option>
-                <option value="Italy">Italy</option>
-                <option value="Sweden">Sweden</option>
-                <option value="Colombia">Colombia</option>
-                <option value="Latvia">Latvia</option>
-                <option value="Romania">Romania</option>
+                <option value="Austria">Austria</option>  
                 <option value="Belgium">Belgium</option>
-                <option value="New Zealand">New Zealand</option>
-                <option value="Zimbabwe">Zimbabwe</option>
-                <option value="Spain">Spain</option>
-                <option value="Finland">Finland</option>
-                <option value="Uruguay">Uruguay</option>
-                <option value="Israel">Israel</option>
                 <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                <option value="Hungary">Hungary</option>
-                <option value="Singapore">Singapore</option>
-                <option value="Japan">Japan</option>
-                <option value="Nigeria">Nigeria</option>
-                <option value="Croatia">Croatia</option>
-                <option value="Norway">Norway</option>
-                <option value="Thailand">Thailand</option>
-                <option value="Denmark">Denmark</option>
-                <option value="Greece">Greece</option>
-                <option value="Moldova">Moldova</option>
-                <option value="Georgia">Georgia</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Bulgaria">Bulgaria</option>
+                <option value="Canada">Canada</option>  
                 <option value="China">China</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Croatia">Croatia</option>
                 <option value="Czech Republic">Czech Republic</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Finland">Finland</option> 
+                <option value="France">France</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Germany">Germany</option>  
+                <option value="Greece">Greece</option>
+                <option value="Hungary">Hungary</option>
+                <option value="India">India</option>
+                <option value="Ireland">Ireland</option>
+                <option value="Israel">Israel</option>
+                <option value="Italy">Italy</option>
+                <option value="Japan">Japan</option>
+                <option value="Latvia">Latvia</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Moldova">Moldova</option>  
+                <option value="Netherlands">Netherlands</option>
+                <option value="New Zealand">New Zealand</option> 
+                <option value="Nigeria">Nigeria</option>
+                <option value="Norway">Norway</option>
                 <option value="Philippines">Philippines</option>
+                <option value="Poland">Poland</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Romania">Romania</option>
+                <option value="Russia">Russia</option>
+                <option value="Singapore">Singapore</option> 
+                <option value="Slovenia">Slovenia</option>
+                <option value="South Africa">South Africa</option>
+                <option value="Spain">Spain</option>
+                <option value="Sweden">Sweden</option>  
+                <option value="Switzerland">Switzerland</option>
+                <option value="Thailand">Thailand</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="United States">United States</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Zimbabwe">Zimbabwe</option>
             </select>
         </fieldset>
         </div>
